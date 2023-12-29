@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Music</title>
+</head>
+<style>
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --index: calc(1vw + 1vh);
+        font-family: Inter, sans-serif;
+        font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+    }
+
+    @supports (font-variation-settings: light) {
+        :root { font-family: InterVariable, sans-serif; }
+    }
+
+    body {
+        width: 99%;
+        height: 95vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1e1e1e;
+        color: #fff;
+    }
+
+    .logo {
+        --width: 64px;
+        width: calc(var(--index) * 4);
+    }
+
+    .float {
+        color: #3d3d3d;
+        position: absolute;
+        bottom: 6%;
+        font-size: calc(var(--index) * 1);
+    }
+</style>
+<body class="myDiv">
+    <img class="logo" src="src/photo/Load.svg">
+    <h4 class="float">PROJECT</h4>
+
+    <div id="content-container">
+        <!-- Здесь будет загружено содержимое из другого HTML -->
+    </div>
+
+    <script>
+        // Функция для загрузки другого HTML-документа через 3 секунды
+        function loadOtherHtml() {
+            setTimeout(function () {
+                $.get("index.html", function (data) {
+                    // Создаем временный элемент для разбора HTML
+                    var tempElement = document.createElement('html');
+                    tempElement.innerHTML = data;
+
+                    // Заменяем текущий HTML-документ новым
+                    document.open();
+                    document.write(data);
+                    document.close();
+                });
+            }, 3000);
+        }
+
+        // Вызываем функцию после загрузки страницы
+        $(document).ready(function () {
+            loadOtherHtml();
+        });
+    </script>
+</body>
+</html>

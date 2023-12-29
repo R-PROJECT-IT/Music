@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <title>Music</title>
+</head>
+<style>
+    html{
+        margin: 0;
+        padding: 0;
+    }
+
+    :root{
+        --index: calc(1vw + 1vh);
+        font-family: Inter, sans-serif;
+        font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+        }
+
+    @supports (font-variation-settings: light) {
+    :root { font-family: InterVariable, sans-serif; }
+    }
+
+    ::-webkit-scrollbar {
+    display: none;
+}
+
+    body{
+        width: 99%;
+        height: 95vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #1e1e1e;
+        color: #fff;
+    }
+
+    .nav{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 2%;
+    }
+
+    .logo{
+        width: calc(var(--index) * 8);
+        position: absolute;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .search img{
+        width: calc(var(--index) * 1.4);
+    }
+
+    .find input, input:focus{
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: calc(var(--index) * 1);;
+    }
+
+    .profile{
+        width: calc(var(--index) * 2.5);  
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .find{
+        width: 70%;
+        border-radius: 30px;
+        background-color: #1e1e1e;
+        border-color: #fff;
+        color: #fff;
+        position: absolute;
+        top: calc(var(--index) * 5);;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .find button, .search button{
+        background-color: transparent;
+        border: none;
+        color:#fff;
+        font-size: calc(var(--index) * 1);
+    }
+
+    .SONGS{
+        width: 90%;
+        height: 70vh;
+        margin: auto;
+    }
+
+    @media screen and (max-width: 980px) {
+        .SONGS{
+        width: 90%;
+        height: 78vh;
+        margin: auto;
+    }
+    }
+
+    .PATH{
+        width: 100%;
+        height: auto;
+        background-color: rgba(256, 256, 256, 0);
+    }
+
+    .PATH-IMG{
+        width: calc(var(--index) * 17);
+        margin-bottom: calc(var(--index) * 1);
+    }
+
+    .cards{
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .cards img{
+        width: calc(var(--index) * 12); 
+        border-radius: calc(var(--index) * 1);
+        margin-right: calc(var(--index) * 1);
+    }
+
+
+    @keyframes slidein {
+        from {
+            width: 2%
+        }
+
+        to {
+            width: 30%;
+            border-bottom: 2px solid #fff;
+        }
+}
+
+</style>
+<body>
+    <div class="nav">
+        <img class="profile" src="src/photo/Profile.png">
+        <img class="logo" src="src/photo/Logo.svg">
+        <div class="search">
+            <button onclick="findshow()">
+                <img src="src/photo/Search.svg">
+            </button>
+        </div>
+    </div>
+
+    <dialog class="find" id="dialog" style="display: none;">
+        <input type="text" placeholder="Найти" id="search-input"></input>
+        <button onclick="clear_INPUT()">x</button>
+    </dialog>
+    <div class="card">
+    </div>
+
+    <div class="SONGS">
+        <div class="PATH">
+            <img class="PATH-IMG" src="src/photo/Full_Logo.png">
+            <div class="cards">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+                <img src="src/photo/Profile.png">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function findshow(){
+        if (document.getElementById("dialog").style.display == "none"){
+            document.getElementById("dialog").style.display="";
+        }
+        else{
+            document.getElementById("dialog").style.display="none";
+        }
+    }
+
+    function clear_INPUT(){
+        document.getElementById("search-input").value = "";
+    }
+</script>
+</html>
