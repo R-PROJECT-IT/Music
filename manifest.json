@@ -1,0 +1,12 @@
+{
+ "name": "Music",
+ "short_name": "Music",
+ "start_url": "https://r-project-it.github.io/Music",
+ "description": "",
+ "display": "standalone",
+ "orientation": "any",
+ "theme_color": "#ffff00",
+ "background_color": "#ffffff",
+ "icons": [],
+ "scope": "https://r-project-it.github.io/Music"
+}
