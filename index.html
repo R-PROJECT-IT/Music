@@ -58,7 +58,7 @@
         // Функция для загрузки другого HTML-документа через 3 секунды
         function loadOtherHtml() {
             setTimeout(function () {
-                $.get("index.html", function (data) {
+                $.get("start_screen.html", function (data) {
                     // Создаем временный элемент для разбора HTML
                     var tempElement = document.createElement('html');
                     tempElement.innerHTML = data;
